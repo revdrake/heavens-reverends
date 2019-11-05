@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired
 class BookForm(FlaskForm):
     title = StringField('HR Book Title', validators=[DataRequired()])
     author = StringField('HR Book Author', validators=[DataRequired()])
-    content = TextAreaField('HR Book Content', validators=[DataRequired()])
+    book_content = TextAreaField('HR Book Content', validators=[DataRequired()])
     publish_date = DateTimeField('Publish Date', format='%m/%d/%y')
     submit = SubmitField('Publish')
 
@@ -13,7 +13,7 @@ class BookForm(FlaskForm):
 class BookUpdateForm(FlaskForm):
     title = StringField('HR Post Title', validators=[DataRequired()])
     author = StringField('HR Book Author', validators=[DataRequired()])
-    content = TextAreaField('HR Book Content', validators=[DataRequired()])
+    book_content = TextAreaField('HR Book Content', validators=[DataRequired()])
     publish_date = DateTimeField('Publish Date', format='%m/%d/%y')
     submit = SubmitField('Update')
     cancel = SubmitField('Cancel')

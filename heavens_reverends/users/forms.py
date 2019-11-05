@@ -12,11 +12,11 @@ class LoginForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired(),
+    email = StringField('Email: ', validators=[DataRequired(), Email()])
+    username = StringField('Username: ', validators=[DataRequired()])
+    password = PasswordField('Password: ', validators=[DataRequired(),
                                                      EqualTo('pass_confirm',message='Passowrds must match.')])
-    pass_confirm = PasswordField('Confirm Password', validators=[DataRequired()])
+    pass_confirm = PasswordField('Confirm Password: ', validators=[DataRequired()])
     submit = SubmitField('Register')
 
     def check_email(self,field):

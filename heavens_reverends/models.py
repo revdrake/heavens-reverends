@@ -59,13 +59,14 @@ class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.Text, nullable=False)
     author = db.Column(db.Text, nullable=False)
-    publish_date = db.Column(db.DateTime, nullable=False)
+    content = db.Column(db.Text)
+    publish_date = db.Column(db.DateTime)
 
-    def __init__(self, id, title, author, publish_date):
-        self.id = id
+    def __init__(self, title, author, content, publish_date):
         self.title = title
         self.author = author
+        self.content = content
         self.publish_date = publish_date
 
     def __repr__(self):
-        return f"{self.title} by {self.author} \n Published: {self.publish_date.strftime('%Y-%m-%d')}"
+        return f"{self.title} by {self.author} Published: {self.publish_date}"

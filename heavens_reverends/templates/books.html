@@ -15,9 +15,9 @@
 
         <h2><a class="card-title" href="  {{ url_for('books.book', book_id=book.id) }}">{{ book.title }}</a></h2>
         <p>Written By: <a href="{{ url_for('books.book', book_id=book.id) }}">{{ book.author }}</a></p>
-        <p>Published on: {{ book.publish_date.strftime('%Y-%m-%d') }}</p>
-        <p class="card-text">{{ book.text[:100] }}...</p>
-        <a href="{{ url_for('book.book', book_id=book.id) }}" class="btn btn-primary">Read Book</a>
+        <p>Published on: {{ book.publish_date }}</p>
+        <p class="card-text">{{ book.content[:100] }}...</p>
+        <a href="{{ url_for('books.book', book_id=book.id) }}" class="btn btn-primary">Read Book</a>
       </div>
     </div>
    {% endfor %}

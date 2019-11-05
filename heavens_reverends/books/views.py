@@ -16,12 +16,13 @@ def add_book():
     if form.validate_on_submit():
         book = Book(title=form.title.data,
                     author=form.author.data,
-                    content=form.content.data,
-                    publish_date=form.publish_date.data)
+                    content=form.book_content.data,
+                    publish_date=form.publish_date.data
+                    )
         db.session.add(book)
         db.session.commit()
         flash('Book Added')
-        return redirect(url_for('core.index'))
+        return redirect(url_for('core.books'))
 
     return render_template('add_book.html',form=form)
 # READ
@@ -30,7 +31,8 @@ def book(book_id):
     book = Book.query.get_or_404(book_id)
     return render_template('books.html',title=book.title,
                                        author=book.author,
-                                       publish_date=book.publish_date,
+                                       contents=book.content,
+                                       # publish_date=book.publish_date,
                                        book=book)
 
 # UPDATE
@@ -45,14 +47,14 @@ def update_book(post_id):
 
     if form.validate_on_submit():
         book.title = form.title.data
-        book.text = form.text.data
+        book.author = form.autor.data
         if form.submit.data:
             db.session.commit()
             flash('Book Updated')
         return redirect(url_for('books.book',book_id=book.id))
     elif request.method == 'GET':
-        form.title.data = post.title
-        form.text.data = post.text
+        form.title.data = book.title
+        form.contents.data = book.content
 
     return render_template('update_book.html',title='Updating',form=form)
 
