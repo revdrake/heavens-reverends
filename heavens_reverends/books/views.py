@@ -26,13 +26,13 @@ def add_book():
 
     return render_template('add_book.html',form=form)
 # READ
-@books.route('/<int:book_id>')
+@books.route('/books/<int:book_id>')
 def book(book_id):
     book = Book.query.get_or_404(book_id)
-    return render_template('books.html',title=book.title,
+    return render_template('book.html',title=book.title,
                                        author=book.author,
                                        contents=book.content,
-                                       # publish_date=book.publish_date,
+                                       publish_date=book.publish_date,
                                        book=book)
 
 # UPDATE
