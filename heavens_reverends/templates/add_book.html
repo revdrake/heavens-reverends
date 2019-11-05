@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <form class="form-group" method="POST">
+    {{form.hidden_tag()}}
+
+    <div class="form-group text-center-smashed">
+      {{form.title.label(class="form-control-label")}}
+      {{form.title(class="form-control form-control-lg")}}
+    </div>
+    <div class="form-group text-center-smashed">
+      {{form.content.label(class="form-control-label")}}
+      {{form.content(class="form-control form-control-lg")}}
+    </div>
+    <div class="form-group">
+      {{form.submit(class="btn btn-outline-info bg-gold")}}
+      {% if form.cancel %}
+        {{form.cancel(class="btn btn-outline-danger" if form.cancel)}}
+      {% endif %}
+    </div>
+  </form>
+
+</div>
+{% endblock %}

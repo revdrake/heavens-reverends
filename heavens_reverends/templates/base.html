@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <title>Heaven's Reverends</title>
+    <style media="screen">
+      .text-center-smashed {
+        align: center;
+        padding: 10px;
+        text-align: center;
+        margin: 0px;
+        margin-top: 5px;
+        border-radius: 15px;
+        color: #000000;
+      }
+      .posts-list {
+          border-radius: 20px;
+          width: 670px;
+          margin-left: -5px;
+      }
+      .bg-red {
+          background-color: red;
+      }
+      .bg-gold {
+          /* background-color: #FFDD4D; */
+          background-color: #d4af37;
+          border: solid black;
+      }
+      .bg-lightblue {
+          background-color: skyblue;
+      }
+      .bg-black {
+          background-color: #000000;
+      }
+      .bg-white {
+          background-color: #000000;
+      }
+      .bg-blue {
+          background-color: #5DADE2;
+      }
+      .jumbo-head {
+        width: 740px;
+        margin-left: -40px;
+      }
+      .bg-logo {
+        background-image: url('static/profile_pics/hr_logo.jpg');
+        background-repeat: no-repeat;
+        height: 700px;
+        width: 550px;
+      }
+      .img-negative {
+       -webkit-filter: invert(1);
+       filter: invert(1);
+      }
+      .logo-fit {
+        margin-top: 3px;
+        margin-left: 3px;
+        object-fit: scale-down;
+        height: 70px;
+        width: 70px;
+      }
+    </style>
+  </head>
+  <body class="bg-black">
+  <div>
+  <!-- <body class='bg-logo'> -->
+      <ul class='nav'>
+      <!-- <ul class='navbar bg-gold'> -->
+        <!-- <li> <img src="'static/profile_pics/hr_logo.jpg'" height=300px></li> -->
+        <li class='nav-link bg-gold'>
+          <a href="{{url_for('core.index')}}">Home</a>
+        </li>
+        <li class='nav-link bg-gold'>
+          <a href="{{url_for('core.info')}}">About</a>
+        </li>
+        <li class='nav-link bg-gold'>
+          <a href="{{url_for('core.books')}}">Books</a>
+        </li>
+        {% if current_user.is_authenticated %}
+        <li class='nav-link bg-gold'>
+          <a href="{{url_for('users.account')}}">Account</a>
+        </li>
+        <li class='nav-link bg-gold'>
+          <a href="{{url_for('core.books')}}">Write Book</a>
+        </li>
+        <li class='nav-link bg-gold'>
+          <a href="{{url_for('posts.create_post')}}">Create Post</a>
+        </li>
+        <li class='nav-link bg-gold'>
+          <a href="{{url_for('users.logout')}}">Log Out</a>
+        </li>
+        {% else %}
+        <li class='nav-link bg-gold'>
+          <a href="{{url_for('users.login')}}">Log In</a>
+        </li>
+        <li class='nav-link bg-gold'>
+          <a href="{{url_for('users.register')}}">Register</a>
+        </li>
+        {% endif %}
+      </ul>
+      <div class="container">
+        {% block content %}
+
+        {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>
