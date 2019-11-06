@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+  {% for c in form.appointment_type.choices %}
+  <!-- <a href="{{url_for('appointments.book_wedding_appointment')}}"> -->
+    <button class='jumbotron' type="button" name="button" align="center">
+        {{c}}
+    </button>
+  <!-- </a> -->
+  {% endfor %}<br>
+  <button type="button" name="button">
+    Go
+  </button>
+</div>
+{% endblock content %}
