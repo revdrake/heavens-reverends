@@ -1,4 +1,3 @@
-# blog_posts/views.py
 from flask import render_template,url_for,flash,request,redirect,Blueprint
 from flask_login import current_user,login_required
 from heavens_reverends import db
