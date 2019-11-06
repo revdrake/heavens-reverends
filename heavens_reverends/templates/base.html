@@ -82,6 +82,9 @@
         </li>
         {% if current_user.is_authenticated %}
         <li class='nav-link bg-gold'>
+          <a href="{{url_for('appointments.book_wedding_appointment')}}">Appointments</a>
+        </li>
+        <li class='nav-link bg-gold'>
           <a href="{{url_for('users.account')}}">Account</a>
         </li>
         <li class='nav-link bg-gold'>

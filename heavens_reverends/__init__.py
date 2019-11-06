@@ -27,9 +27,11 @@ from heavens_reverends.error_pages.handlers import error_pages
 from heavens_reverends.users.views import users
 from heavens_reverends.posts.views import posts
 from heavens_reverends.books.views import books
+from heavens_reverends.appointments.views import appointments
 
 app.register_blueprint(core)
 app.register_blueprint(error_pages)
 app.register_blueprint(users)
 app.register_blueprint(posts)
 app.register_blueprint(books)
+app.register_blueprint(appointments)
