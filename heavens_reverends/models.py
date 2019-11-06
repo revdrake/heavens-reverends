@@ -81,7 +81,7 @@ class Appointment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
     appointment_type = db.Column(db.Text, nullable=False)
-    appointment_date = db.Column(db.DateTime, nullable=False)
+    appointment_date = db.Column(db.DateTime, nullable=True) # False)
     first_name = db.Column(db.Text, nullable=False)
     last_name = db.Column(db.Text, nullable=False)
     spouse_first_name = db.Column(db.Text, nullable=False)

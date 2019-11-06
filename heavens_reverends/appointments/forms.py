@@ -11,7 +11,7 @@ class WeddingAppointmentForm(FlaskForm):
     last_name = StringField('Last Name', validators=[DataRequired()])
     spouse_first_name = StringField('Spouse First Name', validators=[DataRequired()])
     spouse_last_name = StringField('Spouse Last Name', validators=[DataRequired()])
-    appointment_date = DateTimeField('Appointment Date', format='%m/%d/%y', validators=[DataRequired()])
+    # appointment_date = DateTimeField('Appointment Date', format='%m/%d/%y', validators=[DataRequired()])
     submit = SubmitField('Book')
 
 # Could maybe combine this with above

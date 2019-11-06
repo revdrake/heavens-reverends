@@ -6,9 +6,9 @@ from flask_login import current_user
 from heavens_reverends.models import User
 
 class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Login')
+    email = StringField('Email: ', validators=[DataRequired(), Email()])
+    password = PasswordField('Password: ', validators=[DataRequired()])
+    submit = SubmitField('Login: ')
 
 
 class RegistrationForm(FlaskForm):
