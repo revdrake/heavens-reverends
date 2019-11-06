@@ -70,3 +70,20 @@ class Book(db.Model):
 
     def __repr__(self):
         return f"{self.title} by {self.author} Published: {self.publish_date}"
+
+
+class Appointment(db.Model):
+
+    __tablename__ = 'appointments'
+
+    users = db.relationship(User)
+
+    id = db.Column(db.Integer, primary_key=True)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
+    appointment_type = db.Column(db.Text, nullable=False)
+    appointment_date = db.Column(db.DateTime, nullable=False)
+    first_name = db.Column(db.Text, nullable=False)
+    last_name = db.Column(db.Text, nullable=False)
+    spouse_first_name = db.Column(db.Text, nullable=False)
+    spouse_last_name = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
