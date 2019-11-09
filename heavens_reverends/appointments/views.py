@@ -41,8 +41,6 @@ def book_wedding_appointment():
         db.session.commit()
         flash('Wedding Appointment Booked!')
         return redirect(url_for('appointments.user_appointments'))
-    elif form.validate_on_submit() is False:
-        redirect(url_for('core.info'))
 
 
     return render_template('book_wedding_appointment.html',form=form)
