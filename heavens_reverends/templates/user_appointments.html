@@ -3,11 +3,36 @@
 <div>
   {% for appt in appointments %}
   <!-- <a href="{{url_for('appointments.book_wedding_appointment')}}"> -->
-    <h1>{{appt.appointment_date}}</h1>
+    <h1 align="center" style="color: #d4af37">
+      {{appt.first_name+' '+appt.last_name+' & '+appt.spouse_first_name+' '+appt.spouse_last_name}}<br>
+      {{appt.appointment_date.strftime(format='%-m/%-d/%Y %-I:%M %p')}}
+        <a class="btn btn-secondary" href="{{ url_for('appointments.update_wedding_appointment', appointment_id=appt.id) }}">Update</a>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del_wedding_appointment">Delete</button>
+          <!-- {# <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del_modal">Delete</button> #} -->
+    </h1>
   <!-- </a> -->
-  {% endfor %}<br>
-  <button type="button" name="button">
-    Go
-  </button>
 </div>
+<div class="modal" tabindex="-1" role="dialog" id="del_wedding_appointment">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete Appointment Pop up Modal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to cancel your appointment?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+        <form action="{{ url_for('appointments.delete_wedding_appointment', appointment_id=appt.id) }}" method="POST">
+          <input class="btn btn-danger" type="submit" value="Delete">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}<br>
 {% endblock content %}

@@ -8,16 +8,42 @@
 
     {# Go through each book #}
     {% for book in books.items %}
-    <div class="card posts-list bg-gold">
+    <div class="card posts-list bg-dark-grey" style="font-family: cursive;" >
 
       <div class="card-body">
 
 
-        <h2><a class="card-title" href="  {{ url_for('books.book', book_id=book.id) }}">{{ book.title }}</a></h2>
-        <p>Written By: <a href="{{ url_for('books.book', book_id=book.id) }}">{{ book.author }}</a></p>
-        <p>Published on: {{ book.publish_date }}</p>
-        <p class="card-text">{{ book.content[:100] }}...</p>
+        <h2><a style="color: #d4af37;" class="card-title" href="  {{ url_for('books.book', book_id=book.id) }}">{{ book.title }}</a></h2>
+        <p style="color: #d4af37;">Written By: {{ book.author }}</p>
+          <p style="color: #d4af37;">Published on: {{ book.publish_date.strftime('%B')
+                                      ~ ' ' ~ book.publish_date.day
+                                      ~ ', ' ~ book.publish_date.year}}</p>
+        {# <p style="color: #d4af37;" class="card-text">{{ book.content[:100] }}...</p> #}
         <a href="{{ url_for('books.book', book_id=book.id) }}" class="btn btn-primary">Read Book</a>
+        <a class="btn btn-secondary" href="{{ url_for('books.delete_book', book_id=book.id) }}">Update</a>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del_book">Delete</button>
+      </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="del_book">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Delete Book Pop up Modal</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete this book?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+            <form action="{{ url_for('books.delete_book', book_id=book.id) }}" method="POST">
+              <input class="btn btn-danger" type="submit" value="Delete">
+            </form>
+          </div>
+        </div>
       </div>
     </div>
    {% endfor %}

@@ -58,14 +58,14 @@ def update_book(post_id):
     return render_template('update_book.html',title='Updating',form=form)
 
 #DELETE
-@books.route('/<int:book_id>/delete',methods=['GET','POST'])
+@books.route('/books/<int:book_id>/delete',methods=['GET','POST'])
 @login_required
 def delete_book(book_id):
     book = Book.query.get_or_404(book_id)
-    if book.author != current_user:
-        abort(403)
+    # if book.author != current_user:
+    #     abort(403)
 
-    db.session.delete(post)
+    db.session.delete(book)
     db.session.commit()
     flash('Book Deleted')
-    return redirect(url_for('core.index'))
+    return redirect(url_for('core.books'))

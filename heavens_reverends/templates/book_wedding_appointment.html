@@ -1,27 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
 <div style="color: #d4af37; font-family: cursive;" align="center">
-  <h1>Marriage sucks, but your wedding doesn't have to.</h1>
+  <h1 style="margin-top: 25px;">Marriage sucks, but your wedding doesn't have to.</h1>
 </div>
 <div>
-  <form class="form-group" method="POST">
+  <form class="form-group form-horizontal" method="POST">
     {{form.hidden_tag()}}
-    <div class="form-group text-center-smashed" style="color: #d4af37;">
-      {{form.first_name.label(class="form-control-label")}}
-      {{form.first_name(class="form-control form-control-lg")}}
+    <div class="form-group has-success text-center-smashed" style="color: #d4af37;">
+      {# {{form.first_name.label(class="form-control-label")}} #}
+      {{form.first_name(class="form-control form-control-lg", placeholder="First Name")}}
     </div>
     <div class="form-group text-center-smashed" style="color: #d4af37;">
-      {{form.last_name.label(class="form-control-label")}}
-      {{form.last_name(class="form-control form-control-lg")}}
+      {# {{form.last_name.label(class="form-control-label")}} #}
+      {{form.last_name(class="form-control form-control-lg", placeholder="Last Name")}}
     </div>
     <div class="form-group text-center-smashed" style="color: #d4af37;">
-      {{form.spouse_first_name.label(class="form-control-label")}}
-      {{form.spouse_first_name(class="form-control form-control-lg")}}
+      {# {{form.spouse_first_name.label(class="form-control-label")}} #}
+      {{form.spouse_first_name(class="form-control form-control-lg", placeholder="Spouse First Name")}}
     </div>
     <div class="form-group text-center-smashed" style="color: #d4af37;">
-      {{form.spouse_last_name.label(class="form-control-label")}}
-      {{form.spouse_last_name(class="form-control form-control-lg")}}
+      {# {{form.spouse_last_name.label(class="form-control-label")}} #}
+      {{form.spouse_last_name(class="form-control form-control-lg", placeholder="Spouse Last Name")}}
     </div>
+    <div class="form-group text-center-smashed" style="color: #d4af37;">
+      {# {{form.appointment_date.label(class="form-control-label")}} #}
+      {{form.appointment_date(class="form-control form-control-lg")}}
+    </div>
+    {#
+      COMMENT BEGIN
     <div class="form-group text-center-smashed" style="color: #d4af37;">
       {{form.month.label(class="form-control-label")}}
       {{form.month(class="form-control form-control-lg")}}
@@ -32,10 +38,12 @@
       {{form.hour.label(class="form-control-label")}}
       {{form.hour(class="form-control form-control-lg")}}
     </div>
+      COMMENT END
+    #}
     <div class="form-group" style="color: #d4af37;">
       {{form.submit(class="btn btn-outline-info bg-gold")}}
       {% if form.cancel %}
-        {{form.cancel(class="btn btn-outline-danger" if form.cancel)}}
+        <a href="{{url_for('appointments.user_appointments')}}">{{form.cancel(class="btn btn-outline-danger" if form.cancel)}}</a>
       {% endif %}
     </div>
   </form>

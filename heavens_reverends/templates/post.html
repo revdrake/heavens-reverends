@@ -9,7 +9,7 @@
    {% if post.author == current_user %}
      <div>
        <a class="btn btn-secondary" href="{{ url_for('posts.update', post_id=post.id) }}">Update</a>
-       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del_modal">Delete</button>
+       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del_post">Delete</button>
      </div>
    {% endif %}
 </div>
@@ -20,7 +20,7 @@
   <!-- Modal for Pop Up-->
   {# https://getbootstrap.com/docs/4.1/components/modal/ #}
   {# Notice how the link with the id to the button above! #}
-  <div class="modal" tabindex="-1" role="dialog" id="del_modal">
+  <div class="modal" tabindex="-1" role="dialog" id="del_post">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
