@@ -1,26 +1,24 @@
 {% extends "base.html" %}
-<body style="background-color: gold;">
+<body>
 {% block content %}
-  <div class="jumbotron text-center-smashed jumbo-head bg-gold">
-    <h1 style="color: black;">Heaven's Reverends</h1>
+  <div class="jumbotron jumbo-head text-center-smashed bg-black gold-border gold-text cursive">
+    <h1>Heaven's Reverends</h1>
   </div>
-  <div class="container">
-
+    <!-- <div class="jumbotron jumbo-head text-center-smashed bg-black" style="border: solid #d4af37; color: #d4af37; font-family: cursive;"> -->
     {# Go through each post #}
     {% for post in posts.items %}
-    <div class="card posts-list bg-gold">
-
+    <div class="jumbotron jumbo-head text-center-smashed bg-black gold-text gold-border cursive">
       <div class="card-body">
-
-
-        <h2><a class="card-title" href="  {{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
-        <p>Written By: <a href="{{ url_for('users.user_posts', username=post.author.username) }}">{{ post.author.username }}</a></p>
+        <h2><a class="card-title white-text" href="  {{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
+        <p>Written By: <a class="gold-text" href="{{ url_for('users.user_posts', username=post.author.username) }}">{{ post.author.username }}</a></p>
         <p>Published on: {{ post.created_at.strftime('%Y-%m-%d') }}</p>
         <p class="card-text">{{ post.text[:100] }}...</p>
-        <a href="{{ url_for('posts.post', post_id=post.id) }}" class="btn btn-primary">Read Post</a>
+        <a href="{{ url_for('posts.post', post_id=post.id) }}" class="btn btn-outline-secondary white-text">Read More</a>
       </div>
     </div>
    {% endfor %}
+
+ <!-- </div> -->
 
    <nav aria-label="Page navigation example">
      <ul class="pagination justify-content-center">

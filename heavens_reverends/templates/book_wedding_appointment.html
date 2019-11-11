@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="color: #d4af37; font-family: cursive;" align="center">
+<div class="jumbotron text-center-smashed jumbo-head gold-text gold-border bg-black cursive" align="center">
   <h1 style="margin-top: 25px;">Marriage sucks, but your wedding doesn't have to.</h1>
 </div>
-<div>
+<div class="container gold-border rounded">
   <form class="form-group form-horizontal" method="POST">
     {{form.hidden_tag()}}
     <div class="form-group has-success text-center-smashed" style="color: #d4af37;">
@@ -26,31 +26,17 @@
       {# {{form.appointment_date.label(class="form-control-label")}} #}
       {{form.appointment_date(class="form-control form-control-lg")}}
     </div>
-    {#
-      COMMENT BEGIN
-    <div class="form-group text-center-smashed" style="color: #d4af37;">
-      {{form.month.label(class="form-control-label")}}
-      {{form.month(class="form-control form-control-lg")}}
-      {{form.day.label(class="form-control-label")}}
-      {{form.day(class="form-control form-control-lg")}}
-      {{form.year.label(class="form-control-label")}}
-      {{form.year(class="form-control form-control-lg")}}
-      {{form.hour.label(class="form-control-label")}}
-      {{form.hour(class="form-control form-control-lg")}}
-    </div>
-      COMMENT END
-    #}
-    <div class="form-group" style="color: #d4af37;">
-      {{form.submit(class="btn btn-outline-info bg-gold")}}
+    <div class="form-group">
+      {{form.submit(class="btn btn-outline-secondary gold-border bg-black white-text cursive")}}
       {% if form.cancel %}
         <a href="{{url_for('appointments.user_appointments')}}">{{form.cancel(class="btn btn-outline-danger" if form.cancel)}}</a>
       {% endif %}
+      {% if current_user.is_authenticated %}
     </div>
   </form>
 </div>
-{% if current_user.is_authenticated %}
 <a href="{{url_for('appointments.user_appointments')}}">
-  <button type="button" name="button">
+  <button type="button" name="button" style="margin-top: 5px;" >
     My Appointments
   </button>
 </a>

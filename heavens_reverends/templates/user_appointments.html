@@ -3,13 +3,18 @@
 <div>
   {% for appt in appointments %}
   <!-- <a href="{{url_for('appointments.book_wedding_appointment')}}"> -->
-    <h1 align="center" style="color: #d4af37">
+  <div class="jumbotron jumbo-head text-center-smashed bg-black" style="border: solid #d4af37; color: #d4af37; font-family: cursive;">
+    <h1 align="center">
+      Wedding Consultation<br>
       {{appt.first_name+' '+appt.last_name+' & '+appt.spouse_first_name+' '+appt.spouse_last_name}}<br>
       {{appt.appointment_date.strftime(format='%-m/%-d/%Y %-I:%M %p')}}
-        <a class="btn btn-secondary" href="{{ url_for('appointments.update_wedding_appointment', appointment_id=appt.id) }}">Update</a>
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del_wedding_appointment">Delete</button>
+      <div>
+        <a class="btn btn-outline-info" href="{{ url_for('appointments.update_wedding_appointment', appointment_id=appt.id) }}">Update Appointment</a>
+        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#del_wedding_appointment">Cancel Appointment</button>
           <!-- {# <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del_modal">Delete</button> #} -->
+      </div>
     </h1>
+  </div>
   <!-- </a> -->
 </div>
 <div class="modal" tabindex="-1" role="dialog" id="del_wedding_appointment">

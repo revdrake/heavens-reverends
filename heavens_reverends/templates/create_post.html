@@ -4,21 +4,20 @@
   <form class="form-group" method="POST">
     {{form.hidden_tag()}}
 
-    <div class="form-group text-center-smashed" style="color: #d4af37;">
+    <div class="form-group text-center-smashed">
       {{form.title.label(class="form-control-label")}}
       {{form.title(class="form-control form-control-lg")}}
     </div>
-    <div class="form-group text-center-smashed" style="color: #d4af37;">
+    <div class="form-group text-center-smashed">
       {{form.text.label(class="form-control-label")}}
       {{form.text(class="form-control form-control-lg")}}
     </div>
-    <div class="form-group" style="color: #d4af37;">
-      {{form.submit(class="btn btn-outline-info bg-gold")}}
+    <div class="form-group">
+      {{form.submit(class="btn btn-outline-primary gold-border white-text")}}
       {% if form.cancel %}
         {{form.cancel(class="btn btn-outline-danger" if form.cancel)}}
       {% endif %}
     </div>
   </form>
-
 </div>
 {% endblock %}

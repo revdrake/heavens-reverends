@@ -8,7 +8,7 @@ from heavens_reverends.models import User
 class LoginForm(FlaskForm):
     email = StringField('Email: ', validators=[DataRequired(), Email()])
     password = PasswordField('Password: ', validators=[DataRequired()])
-    submit = SubmitField('Login: ')
+    submit = SubmitField('Login')
 
 
 class RegistrationForm(FlaskForm):
@@ -31,7 +31,7 @@ class RegistrationForm(FlaskForm):
 class UpdateUserForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     username = StringField('Username', validators=[DataRequired()])
-    picture = FileField('Update Profile Pciture', validators=[FileAllowed(['jpg','png'])])
+    picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg','png'])])
     submit = SubmitField('Update')
 
     def check_email(self,field):

@@ -4,21 +4,21 @@
   <form class="form-group" method="POST">
     {{form.hidden_tag()}}
 
-    <div class="form-group text-center-smashed" style="color: #d4af37;">
+    <div class="form-group text-center-smashed">
       {{form.title(class="form-control form-control-lg", placeholder="Book Title")}}
     </div>
-    <div class="form-group text-center-smashed" style="color: #d4af37;">
+    <div class="form-group text-center-smashed">
       {{form.author(class="form-control form-control-lg", placeholder="Author")}}
     </div>
-    <div class="form-group text-center-smashed" style="color: #d4af37;">
+    <div class="form-group text-center-smashed">
       {{form.book_content(class="form-control form-control-lg", placeholder="Book Content")}}
     </div>
-    <div class="form-group text-center-smashed" style="color: #d4af37;">
-      {{form.publish_date.label(class="form-control-label")}}
+    <div class="form-group">
+      {{form.publish_date.label(class="gold-text cursive")}}
       {{form.publish_date(class="form-control form-control-lg")}}
     </div>
-    <div class="form-group" style="color: #d4af37;">
-      {{form.submit(class="btn btn-outline-info bg-gold")}}
+    <div class="form-group cursive">
+      {{form.submit(class="btn gold-border bg-black white-text")}}
       {% if form.cancel %}
         {{form.cancel(class="btn btn-outline-danger" if form.cancel)}}
       {% endif %}
