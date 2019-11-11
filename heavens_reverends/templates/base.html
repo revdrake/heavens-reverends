@@ -22,13 +22,16 @@
           width: 670px;
           margin-left: -5px;
       }
+      .rounded {
+        border-radius: 20px;
+      }
       .bg-red {
           background-color: red;
       }
       .bg-gold {
           /* background-color: #FFDD4D; */
           background-color: #d4af37;
-          border: solid black;
+          /* border: solid black; */
       }
       .bg-black {
           background-color: #141414;
@@ -43,11 +46,13 @@
       .jumbo-head {
         width: 740px;
         margin-left: -40px;
+        margin-top: 20px;
+        margin-bottom: 15px;
       }
       .bg-logo {
         background-image: url('static/profile_pics/hr_logo.jpg');
         background-repeat: no-repeat;
-        height: 700px;
+        height: 670px;
         width: 550px;
       }
       .img-negative {
@@ -65,63 +70,78 @@
         box-shadow:3px 3px 5px 6px #d4af37;
         border: #d4af37;
       }
+      .white-text {
+        color: white;
+      }
+      .black-text {
+        color: #141414;
+      }
+      .gold-text {
+        color: #d4af37;
+      }
+      .gold-border {
+        border: solid #d4af37;
+      }
+      .cursive {
+        font-family: cursive;
+      }
     </style>
   </head>
   <body class="bg-black">
   <div>
   <!-- <body class='bg-logo'> -->
-      <ul class='nav bg-gold shadow'>
+      <ul class='nav bg-gold shadow black-text'>
       <!-- <ul class='navbar bg-gold'> -->
         <!-- <li> <img src="'static/profile_pics/hr_logo.jpg'" height=300px></li> -->
-        <a style="color: #000000;" href="{{url_for('core.index')}}">
-          <li class='nav-link bg-gold btn shadow'>
+        <a class="black-text" href="{{url_for('core.index')}}">
+          <li class='nav-link black-text bg-gold btn btn-outline-dark shadow'>
             Home
           </li>
         </a>
-        <a style="color: #000000;" href="{{url_for('core.info')}}">
-          <li class='nav-link bg-gold btn shadow'>
+        <a class="black-text" href="{{url_for('core.info')}}">
+          <li class='nav-link bg-gold btn btn-outline-dark black-text shadow'>
             About
           </li>
         </a>
-        <a style="color: #000000;" href="{{url_for('core.books')}}">
-          <li class='nav-link bg-gold btn shadow'>
+        <a class="black-text" href="{{url_for('core.books')}}">
+          <li class='nav-link bg-gold btn btn-outline-dark black-text shadow'>
             Books
           </li>
         </a>
         {% if current_user.is_authenticated %}
-        <a style="color: #000000;" href="{{url_for('appointments.book_wedding_appointment')}}">
-          <li class='nav-link bg-gold btn shadow'>
+        <a class="black-text" href="{{url_for('appointments.book_wedding_appointment')}}">
+          <li class='nav-link bg-gold btn btn-outline-dark black-text shadow'>
             Appointments
           </li>
         </a>
-        <a style="color: #000000;" href="{{url_for('users.account')}}">
-          <li class='nav-link bg-gold btn shadow'>
+        <a class="black-text" href="{{url_for('users.account')}}">
+          <li class='nav-link bg-gold btn btn-outline-dark black-text shadow'>
             Account
           </li>
         </a>
-        <a style="color: #000000;" href="{{url_for('books.add_book')}}">
-          <li class='nav-link bg-gold btn shadow'>
+        <a class="black-text" href="{{url_for('books.add_book')}}">
+          <li class='nav-link bg-gold btn btn-outline-dark black-text shadow'>
             Write Book
           </li>
         </a>
-        <a style="color: #000000;" href="{{url_for('posts.create_post')}}">
-          <li class='nav-link bg-gold btn shadow'>
+        <a class="black-text"href="{{url_for('posts.create_post')}}">
+          <li class='nav-link bg-gold btn btn-outline-dark black-text shadow'>
             Create Post
           </li>
         </a>
-        <a style="color: #000000;" href="{{url_for('users.logout')}}">
-          <li class='nav-link bg-gold btn shadow'>
+        <a class="black-text"href="{{url_for('users.logout')}}">
+          <li class='nav-link bg-gold btn btn-outline-dark black-text shadow'>
             Log Out
           </li>
         </a>
         {% else %}
-        <a style="color: #000000;" href="{{url_for('users.login')}}">
-          <li class='nav-link bg-gold btn shadow'>
+        <a class="black-text"href="{{url_for('users.login')}}">
+          <li class='nav-link bg-gold btn btn-outline-dark black-text shadow'>
             Log In
           </li>
         </a>
-        <a style="color: #000000;" href="{{url_for('users.register')}}">
-          <li class='nav-link bg-gold btn shadow'>
+        <a class="black-text" href="{{url_for('users.register')}}">
+          <li class='nav-link bg-gold btn btn-outline-dark black-text shadow'>
             Register
           </li>
         </a>
