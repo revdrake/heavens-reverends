@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-  <div class="jumbotron jumbo-head text-center-smashed gold-border gold-text cursive">
+  <div class="jumbotron jumbo-head text-center-smashed bg-black gold-border gold-text cursive">
     <h1>Heaven's Reverends</h1>
   </div>
   <form method="POST" class="jumbo-head text-center-smashed">
     {{form.hidden_tag()}}
-    {{form.email(placeholder="Email")}}<br>
-    {{form.password(placeholder="Password")}}<br>
+    {{form.email(class="bg-black light-grey-text",placeholder="Email")}}<br>
+    {{form.password(class="bg-black light-grey-text",placeholder="Password")}}<br>
     {{form.submit(class="btn btn-outline-secondary white-text gold-border")}}
   </form>
 {% endblock %}

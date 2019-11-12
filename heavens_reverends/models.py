@@ -87,3 +87,6 @@ class Appointment(db.Model):
     spouse_first_name = db.Column(db.Text, nullable=False)
     spouse_last_name = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    theme = db.Column(db.Text)
+    length_minutes = db.Column(db.Integer)
+    religious_verses = db.Column(db.Text)

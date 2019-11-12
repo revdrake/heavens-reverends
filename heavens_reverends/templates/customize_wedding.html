@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron text-center-smashed jumbo-head gold-text gold-border bg-black cursive" align="center">
+  <h1 style="margin-top: 25px;">Marriage sucks, but your wedding doesn't have to.</h1>
+</div>
+<div class="container gold-border rounded">
+  <form class="form-group form-horizontal" method="POST">
+    {{form.hidden_tag()}}
+    <div class="form-group has-success text-center-smashed gold-text">
+      {{form.theme(class="form-control form-control-lg", placeholder="Theme")}}
+    </div>
+    <div class="form-group text-center-smashed gold-text">
+      {{form.length_minutes(class="form-control form-control-lg", placeholder="Length (Minutes)")}}
+    </div>
+    <div class="form-group text-center-smashed gold-text">
+      {{form.religious_verses(class="form-control form-control-lg", placeholder="Religious Verses")}}
+    </div>
+    <div class="form-group">
+      {{form.submit(class="btn btn-outline-secondary gold-border bg-black light-grey-text cursive")}}
+      <a class="btn btn-outline-danger cursive" href="{{url_for('appointments.user_appointments')}}">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

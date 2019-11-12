@@ -6,39 +6,30 @@
 <div class="container gold-border rounded">
   <form class="form-group form-horizontal" method="POST">
     {{form.hidden_tag()}}
-    <div class="form-group has-success text-center-smashed" style="color: #d4af37;">
-      {# {{form.first_name.label(class="form-control-label")}} #}
+    <div class="form-group has-success text-center-smashed gold-text">
       {{form.first_name(class="form-control form-control-lg", placeholder="First Name")}}
     </div>
-    <div class="form-group text-center-smashed" style="color: #d4af37;">
-      {# {{form.last_name.label(class="form-control-label")}} #}
+    <div class="form-group text-center-smashed gold-text">
       {{form.last_name(class="form-control form-control-lg", placeholder="Last Name")}}
     </div>
-    <div class="form-group text-center-smashed" style="color: #d4af37;">
-      {# {{form.spouse_first_name.label(class="form-control-label")}} #}
+    <div class="form-group text-center-smashed gold-text">
       {{form.spouse_first_name(class="form-control form-control-lg", placeholder="Spouse First Name")}}
     </div>
-    <div class="form-group text-center-smashed" style="color: #d4af37;">
-      {# {{form.spouse_last_name.label(class="form-control-label")}} #}
+    <div class="form-group text-center-smashed gold-text">
       {{form.spouse_last_name(class="form-control form-control-lg", placeholder="Spouse Last Name")}}
     </div>
-    <div class="form-group text-center-smashed" style="color: #d4af37;">
-      {# {{form.appointment_date.label(class="form-control-label")}} #}
+    <div class="form-group text-center-smashed gold-text">
       {{form.appointment_date(class="form-control form-control-lg")}}
     </div>
     <div class="form-group">
-      {{form.submit(class="btn btn-outline-secondary gold-border bg-black white-text cursive")}}
-      {% if form.cancel %}
-        <a href="{{url_for('appointments.user_appointments')}}">{{form.cancel(class="btn btn-outline-danger" if form.cancel)}}</a>
-      {% endif %}
+      {{form.submit(class="btn btn-outline-secondary gold-border bg-black light-grey-text cursive")}}
+        <a class="btn btn-outline-danger cursive" href="{{url_for('appointments.user_appointments')}}">Cancel</a>
       {% if current_user.is_authenticated %}
     </div>
   </form>
 </div>
-<a href="{{url_for('appointments.user_appointments')}}">
-  <button type="button" name="button" style="margin-top: 5px;" >
+<a class="btn btn-outline-secondary bg-light-grey gold-border black-text" href="{{url_for('appointments.user_appointments')}}">
     My Appointments
-  </button>
 </a>
 {% endif %}
 {% endblock %}

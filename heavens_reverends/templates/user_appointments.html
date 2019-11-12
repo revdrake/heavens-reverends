@@ -1,21 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
+{% for appt in appointments %}
 <div>
-  {% for appt in appointments %}
-  <!-- <a href="{{url_for('appointments.book_wedding_appointment')}}"> -->
-  <div class="jumbotron jumbo-head text-center-smashed bg-black" style="border: solid #d4af37; color: #d4af37; font-family: cursive;">
+  <div class="jumbotron jumbo-head text-center-smashed bg-black gold-border gold-text cursive">
     <h1 align="center">
       Wedding Consultation<br>
       {{appt.first_name+' '+appt.last_name+' & '+appt.spouse_first_name+' '+appt.spouse_last_name}}<br>
-      {{appt.appointment_date.strftime(format='%-m/%-d/%Y %-I:%M %p')}}
+      {{appt.appointment_date.strftime(format='%-m/%-d/%Y %-I:%M %p')}}<br>
+      {% if appt.theme %}
+        Theme: {{appt.theme}} <br>
+      {% endif %}
+      {% if appt.length_minutes %}
+        {{appt.length_minutes}} minutes<br>
+      {% endif %}
+      {% if appt.religious_verses %}
+        {{appt.religious_verses}}<br>
+      {% endif %}
       <div>
+        <a class="btn btn-outline-secondary light-grey-text gold-border" href="{{ url_for('appointments.customize_wedding', appointment_id=appt.id) }}">Customize Wedding</a>
         <a class="btn btn-outline-info" href="{{ url_for('appointments.update_wedding_appointment', appointment_id=appt.id) }}">Update Appointment</a>
         <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#del_wedding_appointment">Cancel Appointment</button>
-          <!-- {# <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del_modal">Delete</button> #} -->
       </div>
     </h1>
   </div>
-  <!-- </a> -->
 </div>
 <div class="modal" tabindex="-1" role="dialog" id="del_wedding_appointment">
   <div class="modal-dialog" role="document">
@@ -39,5 +46,5 @@
     </div>
   </div>
 </div>
-{% endfor %}<br>
+{% endfor %}
 {% endblock content %}

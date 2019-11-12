@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField, SelectField, IntegerField
 from wtforms_components import TimeField
 from wtforms_components.fields.html5 import DateTimeLocalField, DateTimeField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Optional
 # from wtforms_components.widgets import DateTimeInput
 
 class AppointmentForm(FlaskForm):
@@ -32,5 +32,13 @@ class WeddingAppointmentUpdateForm(FlaskForm):
     spouse_first_name = StringField('Spouse First Name', validators=[DataRequired()])
     spouse_last_name = StringField('Spouse Last Name', validators=[DataRequired()])
     appointment_date = DateTimeLocalField('Appointment Date', format='%Y-%m-%dT%H:%M', validators=[DataRequired()])
-    submit = SubmitField('Update')
-    cancel = SubmitField('Cancel')
+    submit = SubmitField(label='Update')
+
+class CustomizeWeddingForm(FlaskForm):
+    theme = StringField('Theme',validators=[]) # ,validators=[DataRequired()])
+    # hours = IntegerField()
+    length_minutes = IntegerField('Time (Minutes)',validators=[Optional()])
+    religious_verses = StringField('Religious Verses',validators=[Optional()])
+    # attire
+    # dual_reverend
+    submit = SubmitField('Submit')
