@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="jumbotron jumbo-head text-center-smashed bg-black gold-border gold-text cursive">
+  <h1>Heaven's Reverends</h1>
+</div>
   <form method="POST" style="color: #d4af37;">
     {{form.hidden_tag()}}
-    {{form.email.label}}{{form.email}}<br>
-    {{form.username.label}}{{form.username}}<br>
-    {{form.password.label}}{{form.password}}<br>
-    {{form.pass_confirm.label}}{{form.pass_confirm}}<br>
-    {{form.submit()}}
+    {{form.email(class="bg-black light-grey-text rounded",placeholder="Email")}}<br>
+    {{form.username(class="bg-black light-grey-text rounded",placeholder="Email")}}<br>
+    {{form.password(class="bg-black light-grey-text rounded",placeholder="Password")}}<br>
+    {{form.pass_confirm(class="bg-black light-grey-text rounded",placeholder="Confirm Password")}}<br>
+    {{form.submit(class="btn btn-outline-secondary white-text gold-border")}}
   </form>
 {% endblock %}
