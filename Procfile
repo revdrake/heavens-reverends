@@ -1,1 +1,1 @@
-web: gunicorn app:hr_app
+web: gunicorn hr_app:app
