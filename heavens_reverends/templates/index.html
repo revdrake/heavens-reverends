@@ -5,7 +5,7 @@
     <h1>Heaven's Reverends</h1>
   </div>
     <!-- <div class="jumbotron jumbo-head text-center-smashed bg-black" style="border: solid #d4af37; color: #d4af37; font-family: cursive;"> -->
-    {# Go through each post #}
+    <!-- {# Go through each post #}
     {% for post in posts.items %}
     <div class="jumbotron jumbo-head text-center-smashed bg-black gold-text gold-border cursive">
       <div class="card-body">
@@ -16,11 +16,11 @@
         <a href="{{ url_for('posts.post', post_id=post.id) }}" class="btn btn-outline-secondary white-text">Read More</a>
       </div>
     </div>
-   {% endfor %}
+   {% endfor %} -->
 
  <!-- </div> -->
 
-   <nav aria-label="Page navigation example">
+   <!-- <nav aria-label="Page navigation example">
      <ul class="pagination justify-content-center">
        {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
           {% if posts.page == page_num %}
@@ -32,6 +32,7 @@
           {% endif %}
       {% endfor %}
     </nav>
-</body>
-
+</body> -->
+<div class="container bg-logo gold-border shadow">
+</div>
 {% endblock %}

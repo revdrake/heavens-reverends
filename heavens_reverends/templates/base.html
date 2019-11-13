@@ -19,8 +19,8 @@
       }
       .posts-list {
           border-radius: 20px;
-          width: 670px;
-          margin-left: -5px;
+          /* width: 670px; */
+          /* margin-left: -5px; */
       }
       .rounded {
         border-radius: 20px;
@@ -47,8 +47,8 @@
           background-color: #F5F5F5;
       }
       .jumbo-head {
-        width: 740px;
-        margin-left: -40px;
+        /* width: 740px;
+        margin-left: -40px; */
         margin-top: 20px;
         margin-bottom: 15px;
       }
@@ -94,7 +94,6 @@
     </style>
   </head>
   <body class="bg-black">
-  <div>
   <!-- <body class='bg-logo'> -->
       <ul class='nav bg-gold black-text'>
       <!-- <ul class='navbar bg-gold'> -->
@@ -109,12 +108,12 @@
             About
           </li>
         </a>
+        {% if current_user.is_authenticated %}
         <a class="black-text" href="{{url_for('core.books')}}">
           <li class='nav-link bg-gold btn btn-outline-dark black-text gold-border'>
             Books
           </li>
         </a>
-        {% if current_user.is_authenticated %}
         <a class="black-text" href="{{url_for('appointments.book_wedding_appointment')}}">
           <li class='nav-link bg-gold btn btn-outline-dark black-text gold-border'>
             Appointments
@@ -125,16 +124,18 @@
             Account
           </li>
         </a>
-        <a class="black-text" href="{{url_for('books.add_book')}}">
-          <li class='nav-link bg-gold btn btn-outline-dark black-text gold-border'>
-            Write Book
-          </li>
-        </a>
-        <a class="black-text"href="{{url_for('posts.create_post')}}">
+          {% if current_user.username in ['revdrake','revryan'] %}
+          <a class="black-text" href="{{url_for('books.add_book')}}">
+            <li class='nav-link bg-gold btn btn-outline-dark black-text gold-border'>
+              Write Book
+            </li>
+          </a>
+          {% endif %}
+        <!-- <a class="black-text"href="{{url_for('posts.create_post')}}">
           <li class='nav-link bg-gold btn btn-outline-dark black-text gold-border'>
             Create Post
           </li>
-        </a>
+        </a> -->
         <a class="black-text"href="{{url_for('users.logout')}}">
           <li class='nav-link bg-gold btn btn-outline-dark black-text gold-border'>
             Log Out
@@ -153,7 +154,7 @@
         </a>
         {% endif %}
       </ul>
-      <div class="container">
+      <div class="container" style="text-align: center;">
         {% block content %}
 
         {% endblock %}
