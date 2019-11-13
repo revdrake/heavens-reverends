@@ -90,3 +90,4 @@ wcwidth==0.1.7
 Werkzeug==0.16.0
 wrapt==1.11.1
 WTForms==2.2.1
+WTForms-Components==0.10.0
