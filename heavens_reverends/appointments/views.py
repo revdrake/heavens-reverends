@@ -40,7 +40,8 @@ def book_wedding_appointment():
         db.session.add(appointment)
         db.session.commit()
         flash('Wedding Appointment Booked!')
-        return redirect(url_for('appointments.user_appointments'))
+        # return redirect(url_for('appointments.user_appointments'))
+        return redirect(url_for('appointments.customize_wedding',appointment_id=appointment.id))
 
 
     return render_template('book_wedding_appointment.html',form=form)
@@ -93,7 +94,7 @@ def customize_wedding(appointment_id):
     form = CustomizeWeddingForm()
     if form.validate_on_submit():
         has_update_data = (appointment.theme != form.theme.data \
-                              or appointment.length_minutes != form.length_minutes.data) \
+                              or appointment.length_minutes != int(form.length_minutes.data)) \
                               or appointment.religious_verses != form.religious_verses.data \
                           and (form.theme.data is not None
                               or form.length_minutes.data is not None
@@ -104,6 +105,7 @@ def customize_wedding(appointment_id):
             appointment.religious_verses = form.religious_verses.data
             db.session.commit()
             flash('Wedding Customized!')
+
         return redirect(url_for('appointments.user_appointments'))
     elif request.method == 'GET':
         form.theme.data = appointment.theme
