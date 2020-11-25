@@ -35,13 +35,9 @@ class WeddingAppointmentUpdateForm(FlaskForm):
     submit = SubmitField(label='Update')
 
 class CustomizeWeddingForm(FlaskForm):
-    # theme = StringField('Theme',validators=[]) # ,validators=[DataRequired()])
     theme = SelectField('Theme', choices=[('wwe','WWE'),('indycar','IndyCar'),('brass-bull','Brass Bull')],validators=[]) # ,validators=[DataRequired()])
-    # hours = IntegerField()
     length_minutes = IntegerField('Time (Minutes)',validators=[Optional()])
-    # length_minutes_choices = [(m, m) for m in range(1,5)] # str(m*15) + ' minutes'
-    # length_minutes = SelectField('Time (Minutes)', choices=length_minutes_choices,validators=[Optional()])
-    # length_minutes_selection = IntegerField('Selection', default=length_minutes,validators=[Optional()])
+    # venue = StringField('Venue',validators=[Optional()]) # need to create venue table with venue_id
     religious_verses = StringField('Religious Verses',validators=[Optional()])
     # attire
     # dual_reverend
