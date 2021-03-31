@@ -44,7 +44,7 @@ jedi==0.15.1
 Jinja2==2.10.1
 jmespath==0.9.3
 keyring==15.1.0
-lxml==4.3.3
+lxml==4.6.3
 Mako==1.1.0
 MarkupSafe==1.1.1
 mccabe==0.6.1
